@@ -4,7 +4,7 @@
 import Foundation
 
 public class HubConnectionBuilder {
-    private var connection: HttpConnection?
+    var connection: HttpConnection?
     private var logHandler: LogHandler?
     private var logLevel: LogLevel?
     private var hubProtocol: HubProtocol?

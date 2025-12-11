@@ -64,6 +64,15 @@ public actor HubConnection {
         self.reconnectingHandlers = []
     }
 
+// Public accessor to expose the underlying HttpConnection.connectionId
+    public func getConnectionId() async -> String? {
+        if let http = connection as? HttpConnection {
+            return await http.connectionId
+        }
+        return nil
+    }
+
+
     public func start() async throws {
         if (connectionStatus != .Stopped) {
             throw SignalRError.invalidOperation("Start client while not in a stopped state.")
